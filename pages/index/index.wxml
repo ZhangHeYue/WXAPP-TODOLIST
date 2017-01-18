@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <block>
+   <view class="default">
+     <icon type="circle" size="20" color="gary"/>
+     <text class="default-text"></text>
+    </view>
+  </block>
+    <view class="botton-view">
+    <input class="botton-input" placeholder="输入内容" bindinput="bindInputText" value="{{inputValue}}"/>
+    <button type="default" size="mini"  plain="true" bindtap="bindAddTap"> 添加 </button>
+    </view>
+</view>
