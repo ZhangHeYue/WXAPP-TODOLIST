@@ -1,26 +1,128 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.container-index {
+  position: fixed;
+  background-color: lightblue;
+  height: 92%;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.default-cell {
+  position: relative;
+  margin-top: 0px;
+  border-bottom-style: groove;
+  border-bottom-width: thin;
+  left: 0;
+  right: 0;
+  height: 80rpx;
+  background-color: white;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.default-cell-icon {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.default-cell-text {
+  position: absolute;
+  left: 80rpx;
+  top: 20rpx;
 }
 
-.default-button {
-  width: 20rpx;
-  height: 20rpx;
+.default-cell-button {
+  position: absolute;
+  right: 10rpx;
+  top: 5rpx;
+}
+
+.finish-view {
+  position: relative;
+  top: 0px;
+  background-color: sandybrown;
+  left: 0;
+  right: 0;
+  height: 70rpx;
+}
+
+.finish-text {
+  position: absolute;
+  left: 20rpx;
+  color: gainsboro;
+  vertical-align: middle;
+  top: 10rpx;
+}
+
+.finish-cell {
+  position: relative;
+  top: 0px;
+  border-bottom-style: groove;
+  border-bottom-width: thin;
+  left: 0;
+  right: 0;
+  height: 80rpx;
+  background-color: antiquewhite;
+}
+
+.finish-cell-icon {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.finish-cell-text {
+  position: absolute;
+  left: 80rpx;
+  top: 20rpx;
+  text-decoration:line-through;
+}
+
+.finish-cell-button {
+  position: absolute;
+  right: 10rpx;
+  top: 5rpx;
+}
+
+.total-count-view {
+  position: relative;
+  top: 10rpx;
+  height: 60rpx;
+  width: 100%;
+  right: 10rpx;
+}
+
+.total-count-text {
+  position: absolute;
+  right: 10rpx;
+  text-align: right;
+  top: 5rpx;
+}
+
+.next-button {
+  position: relative;
+  top: 20rpx;
+}
+
+.bottom-view {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 8%;
+  border-top-style: groove;
+  border-top-width: thin;
+}
+
+.bottom-input {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 200px;
+}
+
+.bottom-button {
+  position: absolute;
+  right: 10px;
+  top: 5px;
 }

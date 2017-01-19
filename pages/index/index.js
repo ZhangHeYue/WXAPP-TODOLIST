@@ -6,43 +6,129 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     inputValue: '',
-    defaultTask: {},
-    finishTask: {}
+    defaultTask: [],
+    finishTask: []
   },
   //事件处理函数
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
+  },
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  bindInputText: function (e) {
-    console.log(e.detail.value)
-    this.setData({
-      inputvalue: e.detail.value
-    })
-  },
-  bindAddTap: function () {
-    this.setData({
-      defaultTask: {this.defaultTask, { date: new Date(), text: this.inputValue }}
-    })
+  bindIconDefaultTap: function (e) {
+    var newDefaultTask = wx.getStorageSync('defaultTask') || []
+    var newFinishTask = wx.getStorageSync('finishTask') || []
+    for (let i = 0; i < newDefaultTask.length; i++) {
+      if (newDefaultTask[i]['date'] == e.target.id) {
+        newFinishTask.unshift(newDefaultTask[i])
+        newDefaultTask.splice(i, 1);
+        break;
+      }
+    }
     wx.setStorage({
       key: "defaultTask",
-      data: defaultTask
+      data: newDefaultTask
+    })
+    wx.setStorage({
+      key: "finishTask",
+      data: newFinishTask
     })
     this.setData({
-      inputvalue: ''
+      defaultTask: newDefaultTask,
+      finishTask: newFinishTask
     })
+  },
+   bindIconFinishTap: function (e) {
+    var newDefaultTask = wx.getStorageSync('defaultTask') || []
+    var newFinishTask = wx.getStorageSync('finishTask') || []
+    for (let i = 0; i < newFinishTask.length; i++) {
+      if (newFinishTask[i]['date'] == e.target.id) {
+        newDefaultTask.unshift(newFinishTask[i])
+        newFinishTask.splice(i, 1);
+        break;
+      }
+    }
+    wx.setStorage({
+      key: "defaultTask",
+      data: newDefaultTask
+    })
+    wx.setStorage({
+      key: "finishTask",
+      data: newFinishTask
+    })
+    this.setData({
+      defaultTask: newDefaultTask,
+      finishTask: newFinishTask
+    })
+  },
+  bindDefaultDeleteTap: function(e) {
+   var newDefaultTask = wx.getStorageSync('defaultTask') || []
+   for (let i = 0; i < newDefaultTask.length; i++) {
+      if (newDefaultTask[i]['date'] == e.target.id) {
+        newDefaultTask.splice(i, 1);
+        break;
+      }
+    }
+    wx.setStorage({
+      key: "defaultTask",
+      data: newDefaultTask
+    })
+    this.setData({
+      defaultTask: newDefaultTask,
+    })
+  },
+  bindFinishDeleteTap: function(e) {
+   var newFinishTask = wx.getStorageSync('finishTask') || []
+   for (let i = 0; i < newFinishTask.length; i++) {
+      if (newFinishTask[i]['date'] == e.target.id) {
+        newFinishTask.splice(i, 1);
+        break;
+      }
+    }
+    wx.setStorage({
+      key: "finishTask",
+      data: newFinishTask
+    })
+    this.setData({
+      finishTask: newFinishTask
+    })
+  },
+  bindInputText: function (e) {
+    this.inputValue = e.detail.value
+  },
+  bindAddTap: function () {
+    var newDefaultTask = wx.getStorageSync('defaultTask') || []
+    console.log(this.inputValue)
+    if (this.inputValue === null || this.inputValue === undefined || this.inputValue === '') {
+      return
+    }
+    newDefaultTask.unshift({ date: new Date(), text: this.inputValue })
+    this.setData({
+      defaultTask: newDefaultTask,
+      inputValue: ''
+    })
+     this.inputValue = ''
+    wx.setStorage({
+      key: "defaultTask",
+      data: newDefaultTask
+    })
+  },
+  bindNextTap: function() {
+    wx.navigateTo({url: '../logs/logs'})
   },
   onLoad: function () {
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
-      //更新数据
+      //更新数据~~
       that.setData({
         userInfo:userInfo,
-        defaultTask: wx.getStorageSync('defaultTask'),
-        finishTask: wx.getStorageSync('finishTask')
+        defaultTask: wx.getStorageSync('defaultTask') || [],
+        finishTask: wx.getStorageSync('finishTask') || []
       })
     })
   }

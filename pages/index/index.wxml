@@ -1,17 +1,40 @@
+
 <!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <block>
-   <view class="default">
-     <icon type="circle" size="20" color="gary"/>
-     <text class="default-text"></text>
-    </view>
+<scroll-view class="container-index" scroll-y="true">
+  <block wx:for="{{defaultTask}}" wx:key="default-cell">
+    <template is="default-cell" data="{{...item}}" />
   </block>
-    <view class="botton-view">
-    <input class="botton-input" placeholder="输入内容" bindinput="bindInputText" value="{{inputValue}}"/>
-    <button type="default" size="mini"  plain="true" bindtap="bindAddTap"> 添加 </button>
-    </view>
+  <block wx:if="{{finishTask.length!=0}}">
+    <template is="finish-view" />
+  </block>
+  <block wx:for="{{finishTask}}" wx:key="finish-cell" wx:for-index="idx">
+    <template is="finish-cell" wx:if="{{idx<=2}}" data="{{...item}}" />
+  </block>
+  <view class="total-count-view">
+    <text class="total-count-text">总数：{{defaultTask.length + finishTask.length}}   已完成: {{finishTask.length}}</text>
+  </view>
+  <button wx:if="{{finishTask.length>3}}" class="next-button" type="default" size="defaultSize" bindtap="bindNextTap"> 查看详情 </button>
+</scroll-view>
+<view class="bottom-view">
+  <input class="bottom-input" placeholder="输入内容" bindinput="bindInputText" value="{{inputValue}}" />
+  <button class="bottom-button" type="default" size="mini" plain="true" bindtap="bindAddTap"> 添加 </button>
 </view>
+<template name="default-cell">
+  <view class="default-cell">
+    <icon class="default-cell-icon" id="{{date}}" type="circle" size="15" bindtap="bindIconDefaultTap" />
+    <text class="default-cell-text">{{text}}</text>
+    <button class="default-cell-button" id="{{date}}" type="warn" size="mini" bindtap="bindDefaultDeleteTap">删除</button>
+  </view>
+</template>
+<template name="finish-view">
+  <view class="finish-view">
+    <text class="finish-text">已完成</text>
+  </view>
+</template>
+<template name="finish-cell">
+  <view class="finish-cell">
+    <icon class="finish-cell-icon" id="{{date}}" type="circle" size="15" bindtap="bindIconFinishTap" />
+    <text class="finish-cell-text">{{text}}</text>
+    <button class="finish-cell-button" id="{{date}}" type="default" size="mini" plain="true" bindtap="bindFinishDeleteTap">删除</button>
+  </view>
+</template>
