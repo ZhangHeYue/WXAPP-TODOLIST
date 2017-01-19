@@ -1,8 +1,37 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+.container-index {
+  position: fixed;
+  background-color: antiquewhite;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
 }
-.log-item {
-  margin: 10rpx;
+.finish-cell {
+  position: relative;
+  top: 0px;
+  border-bottom-style: groove;
+  border-bottom-width: thin;
+  left: 0;
+  right: 0;
+  height: 80rpx;
+  background-color: antiquewhite;
+}
+
+.finish-cell-icon {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.finish-cell-text {
+  position: absolute;
+  left: 80rpx;
+  top: 20rpx;
+  text-decoration:line-through;
+}
+
+.finish-cell-button {
+  position: absolute;
+  right: 10rpx;
+  top: 5rpx;
 }

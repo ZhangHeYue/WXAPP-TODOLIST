@@ -1,6 +1,14 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
+<scroll-view class="container-index" scroll-y="true">
+  <block wx:for="{{logs}}" wx:key="finish-cell" wx:for-index="idx">
+    <template is="finish-cell" data="{{...item}}" />
   </block>
-</view>
+</scroll-view>
+
+<template name="finish-cell">
+  <view class="finish-cell">
+    <icon class="finish-cell-icon" id="{{date}}" type="success" size="15" bindtap="bindIconFinishTap" />
+    <text class="finish-cell-text">{{text}}</text>
+    <button class="finish-cell-button" id="{{date}}" type="default" size="mini" plain="true" bindtap="bindFinishDeleteTap">删除</button>
+  </view>
+</template>

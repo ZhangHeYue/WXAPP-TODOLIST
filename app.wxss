@@ -1,6 +1,6 @@
 /**app.wxss**/
 .container {
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,3 +8,32 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.finish-cell {
+  position: relative;
+  top: 0px;
+  border-bottom-style: groove;
+  border-bottom-width: thin;
+  left: 0;
+  right: 0;
+  height: 80rpx;
+  background-color: antiquewhite;
+}
+
+.finish-cell-icon {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.finish-cell-text {
+  position: absolute;
+  left: 80rpx;
+  top: 20rpx;
+  text-decoration:line-through;
+}
+
+.finish-cell-button {
+  position: absolute;
+  right: 10rpx;
+  top: 5rpx;
+}

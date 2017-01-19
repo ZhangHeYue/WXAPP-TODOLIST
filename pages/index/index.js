@@ -79,6 +79,12 @@ Page({
     this.setData({
       defaultTask: newDefaultTask,
     })
+     wx.showToast({
+    title: '成功删除',
+    icon: 'success',
+    mask: true,
+    duration: 1000
+      })
   },
   bindFinishDeleteTap: function(e) {
    var newFinishTask = wx.getStorageSync('finishTask') || []
@@ -95,6 +101,12 @@ Page({
     this.setData({
       finishTask: newFinishTask
     })
+     wx.showToast({
+    title: '成功删除',
+    icon: 'success',
+    mask: true,
+    duration: 1000
+      })
   },
   bindInputText: function (e) {
     this.inputValue = e.detail.value
@@ -116,7 +128,8 @@ Page({
       data: newDefaultTask
     })
   },
-  bindNextTap: function() {
+  bindNextTap: function(e) {
+    console.log(e)
     wx.navigateTo({url: '../logs/logs'})
   },
   onLoad: function () {

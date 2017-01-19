@@ -1,5 +1,4 @@
 /**index.wxss**/
-
 .container-index {
   position: fixed;
   background-color: lightblue;
@@ -8,7 +7,6 @@
   right: 0;
   top: 0;
 }
-
 .default-cell {
   position: relative;
   margin-top: 0px;
@@ -55,35 +53,6 @@
   top: 10rpx;
 }
 
-.finish-cell {
-  position: relative;
-  top: 0px;
-  border-bottom-style: groove;
-  border-bottom-width: thin;
-  left: 0;
-  right: 0;
-  height: 80rpx;
-  background-color: antiquewhite;
-}
-
-.finish-cell-icon {
-  position: absolute;
-  left: 20rpx;
-  top: 20rpx;
-}
-
-.finish-cell-text {
-  position: absolute;
-  left: 80rpx;
-  top: 20rpx;
-  text-decoration:line-through;
-}
-
-.finish-cell-button {
-  position: absolute;
-  right: 10rpx;
-  top: 5rpx;
-}
 
 .total-count-view {
   position: relative;
@@ -103,6 +72,7 @@
 .next-button {
   position: relative;
   top: 20rpx;
+  width: 400rpx;
 }
 
 .bottom-view {
