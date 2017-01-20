@@ -7,6 +7,33 @@
   right: 0;
   top: 0;
 }
+
+.no-content {
+  position: relative;
+  height: 350rpx;
+  width: 100%;
+  margin-top: 10rpx;
+}
+
+.no-content-icon {
+  position: absolute;
+  left: 275rpx;
+  right: 275rpx;
+  top: 10rpx;
+  text-align: center;
+}
+
+.no-content-text {
+  position: absolute;
+  font-size: 110%;
+  clear: both;
+  bottom: 10rpx;
+  left: 275rpx;
+  right: 275rpx;
+  height: 40rpx;
+  text-align: center;
+}
+
 .default-cell {
   position: relative;
   margin-top: 0px;

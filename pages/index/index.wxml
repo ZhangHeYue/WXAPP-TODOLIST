@@ -1,7 +1,9 @@
 
 <!--index.wxml-->
 <scroll-view class="container-index" scroll-y="true">
-  <view wx:if="{{finishTask.length==0&&defaultTask.length==0}}" class="no-content">
+  <view class="no-content" wx:if="{{finishTask.length==0&&defaultTask.length==0}}" >
+    <icon class="no-content-icon" type="info_circle" size="100"/>
+    <text class="no-content-text" >没有记录</text>
   </view>
   <block wx:for="{{defaultTask}}" wx:key="default-cell">
     <template is="default-cell" data="{{...item}}" />
