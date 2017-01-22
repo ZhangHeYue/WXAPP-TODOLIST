@@ -1,6 +1,6 @@
 
 <!--index.wxml-->
-<scroll-view class="container-index" scroll-y="true">
+<view class="container-index">
   <view class="no-content" wx:if="{{finishTask.length==0&&defaultTask.length==0}}" >
     <icon class="no-content-icon" type="info_circle" size="100"/>
     <text class="no-content-text" >没有记录</text>
@@ -18,7 +18,7 @@
     <text class="total-count-text">总数：{{defaultTask.length + finishTask.length}}   已完成: {{finishTask.length}}</text>
   </view>
   <button wx:if="{{finishTask.length>3}}" class="next-button" type="default" bindtap="bindNextTap"> 更多请查看详情 </button>
-</scroll-view>
+</view>
 <view class="bottom-view">
   <input class="bottom-input" placeholder="输入内容" bindinput="bindInputText" value="{{inputValue}}" />
   <button class="bottom-button" type="default" size="mini" plain="true" bindtap="bindAddTap"> 添加 </button>

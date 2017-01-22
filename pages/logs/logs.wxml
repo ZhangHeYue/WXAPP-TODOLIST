@@ -1,9 +1,9 @@
 <!--logs.wxml-->
-<scroll-view class="container-index" scroll-y="true">
+<view class="container-index">
   <block wx:for="{{logs}}" wx:key="finish-cell" wx:for-index="idx">
     <template is="finish-cell" data="{{...item}}" />
   </block>
-</scroll-view>
+</view>
 
 <template name="finish-cell">
   <view class="finish-cell">
